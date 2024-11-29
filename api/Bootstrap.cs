@@ -17,7 +17,10 @@ public static class Bootstrap
     services.AddCors(options => 
     {
       options.AddPolicy(name: "Local", policy => {
-        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        policy.WithOrigins("http://localhost:5173")
+          .AllowAnyHeader()
+          .AllowAnyMethod()
+          .AllowCredentials();
       });
     });
   }

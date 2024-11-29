@@ -6,12 +6,7 @@ public class TestingHub : Hub
 {
   public override Task OnConnectedAsync()
   {
-    Console.WriteLine($"new connection, id: {Context.ConnectionId}");
+    Console.WriteLine($"New Connection ID: {Context.ConnectionId}");
     return base.OnConnectedAsync();
-  }
-
-  public async Task SendTestMessage()
-  {
-    await Clients.All.SendAsync("TestMessageReceived");
   }
 }
