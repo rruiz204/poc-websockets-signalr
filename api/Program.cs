@@ -1,4 +1,5 @@
 using Api;
+using Api.Src.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.MapControllers();
 app.UseCors("Local");
+
+app.MapHub<TestingHub>("/testing-ws");
+app.MapControllers();
+
 app.Run();
