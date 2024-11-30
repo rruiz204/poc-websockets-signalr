@@ -9,4 +9,10 @@ public class TestingHub : Hub
     Console.WriteLine($"New Connection ID: {Context.ConnectionId}");
     return base.OnConnectedAsync();
   }
+
+  public async Task SendHelloWorld()
+  {
+    Console.WriteLine("Sending hello world...");
+    await Clients.Others.SendAsync("ReceiveHelloWorld", $"Hello World!!! from {Context.ConnectionId}");
+  }
 }
