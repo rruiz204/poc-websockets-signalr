@@ -10,9 +10,9 @@ public class TestingHub : Hub
     return base.OnConnectedAsync();
   }
 
-  public async Task SendHelloWorld()
+  public async Task SendHelloWorld(string user)
   {
     Console.WriteLine("Sending hello world...");
-    await Clients.Others.SendAsync("ReceiveHelloWorld", $"Hello World!!! from {Context.ConnectionId}");
+    await Clients.Others.SendAsync("ReceiveHelloWorld", $"Hello World!!! from {user}");
   }
 }
