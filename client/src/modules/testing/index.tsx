@@ -48,7 +48,7 @@ const Testing = (): JSX.Element => {
 
   const sendHelloWorld = async () => {
     try {
-      if (isConnected) await socket.current?.invoke("SendHelloWorld");
+      if (isConnected) await socket.current?.invoke("SendHelloWorld", "User 2");
     } catch (err) {
       console.log(err);
     }
